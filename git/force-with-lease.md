@@ -4,4 +4,4 @@ What --force-with-lease does is refuse to update a branch unless it is the state
 
 ref:
 <br />https://developer.atlassian.com/blog/2015/04/force-with-lease/
-https://robots.thoughtbot.com/git-push-force-with-lease 
+<br />https://robots.thoughtbot.com/git-push-force-with-lease 
