@@ -8,12 +8,11 @@
 
     function* counter() {
         var x=0;
-        while (x<3){
-            yield ++x;
-            
+        while (x<3){ 
+            yield ++x; 
         }
     }
-
+    // get a counter instnce and iterate using while loop
     var c = counter();
     var o = c.next();
     while(!o.done){
