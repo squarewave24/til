@@ -4,6 +4,8 @@
 
 <i>ES6 generator functions are "cooperative" in their concurrency behavior. Inside the generator function body, you use the new yield keyword to pause the function from inside itself. Nothing can pause a generator from the outside; it pauses itself when it comes across a yield.</i> [link](https://davidwalsh.name/es6-generators)
 
+```javascript
+
     function* counter() {
         var x=0;
         while (x<3){
@@ -26,7 +28,7 @@
     for (var o2 of counter()){
         console.log('value: ', o2);
     }
-
+```
 
 
 
