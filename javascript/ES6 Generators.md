@@ -6,17 +6,28 @@
 
     function* counter() {
         var x=0;
-    while (x<3){
-        yield x++;
-        console.log('x: ', x);
-    }
-    console.log('finished');
+        while (x<3){
+            yield ++x;
+            
+        }
     }
 
     var c = counter();
-    while(!c.next().done){
-        c.next();
+    var o = c.next();
+    while(!o.done){
+        console.log('obj: ', o);
+        if (o.done)
+            console.log('finished');
+        else 
+            o = c.next();
     };
+
+    // faster way to write above loop using for..of
+    for (var o2 of counter()){
+        console.log('value: ', o2);
+    }
+
+
 
 
 This is pretty much the iterator pattern from c#. calling .next() will resume original function and return the value (Undefined if genertor function is complete). in ES6 a foreach loops is impleneted using a for..of notation. 
