@@ -4,36 +4,37 @@
 
 <i>ES6 generator functions are "cooperative" in their concurrency behavior. Inside the generator function body, you use the new yield keyword to pause the function from inside itself. Nothing can pause a generator from the outside; it pauses itself when it comes across a yield.</i> [link](https://davidwalsh.name/es6-generators)
 
+
 ```javascript
-
-    function* counter() {
-        var x=0;
-        while (x<3){ 
-            yield ++x; 
-        }
+function* counter() {
+    var x=0;
+    while (x<3){ 
+        yield ++x; 
     }
-    // get a counter instnce and iterate using while loop
-    var c = counter();
-    var o = c.next();
-    while(!o.done){
-        console.log('obj: ', o);
-        if (o.done)
-            console.log('finished');
-        else 
-            o = c.next();
-    };
+}
+// example 1
+var c = counter();
+var o = c.next();
+while(!o.done){
+    console.log('obj: ', o);
+    if (o.done)
+        console.log('finished');
+    else 
+        o = c.next();
+};
 
-    // faster way to write above loop using for..of
-    for (var o2 of counter()){
-        console.log('value: ', o2);
-    }
+// example 2
+for (var o2 of counter()){
+    console.log('value: ', o2);
+}
 ```
-
-
 
 This is pretty much the iterator pattern from c#. calling .next() will resume original function and return the value (Undefined if genertor function is complete). in ES6 a foreach loops is impleneted using a for..of notation. 
 
+###Exception Handling
+use regular try..catch on asynchronous calls
 
+ 
 
 
 
