@@ -21,3 +21,7 @@ drawbacks:
 A common application of a trie is storing a predictive text or autocomplete dictionary, such as found on a mobile telephone. 
 
 Tries are also well suited for implementing approximate matching algorithms,[8] including those used in spell checking and hyphenation[4] software.
+
+<br />
+
+![example tree](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Patricia_trie.svg/660px-Patricia_trie.svg.png)
