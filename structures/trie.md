@@ -1,4 +1,6 @@
-Trie, also known as digital tree or radix tree or prefix tree, is a type of search tree. ordered tree that can store a dynamic set of associative array where keys are usually strings. 
+# Trie 
+
+also known as digital tree or radix tree or prefix tree, is a type of search tree. ordered tree that can store a dynamic set of associative array where keys are usually strings. 
 
 Unlike a binary search tree, no node stores the key associated with that node; instead, its position in the tree defines the key with which it is associated. All descendants of that node have a common prefix of the string associated with that node (root has empty string). values tend to only be associated with leaf nodes and with some inner nodes that correspond to keys of interest. 
 
