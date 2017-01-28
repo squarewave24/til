@@ -24,3 +24,6 @@ shadowed variables in other scopes can not be accessed.
 
 *No matter where a function is invoked from, or even how it is invoked, its lexical scope is only defined by where the function was declared*
 
+# cheating
+
+lexical scope can be chated using *eval* and *with* construcuts but this is generally frowned upon like masterbating on an airplane (thanks a lot Bin Laden!). It also comes with performance issues 
