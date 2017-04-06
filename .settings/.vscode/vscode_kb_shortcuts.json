@@ -1,0 +1,33 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "alt+d",
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+1",
+        "command": "workbench.action.focusFirstEditorGroup"
+    },
+    {
+        "key": "alt+left",
+        "command": "workbench.action.focusLeftEditor"
+    },
+    {
+        "key": "alt+right",
+        "command": "workbench.action.focusRightEditor"
+    },
+    {
+        "key": "alt+2",
+        "command": "workbench.action.focusSecondEditorGroup"
+    },
+    {
+        "key": "alt+0",
+        "command": "workbench.action.focusSideBar"
+    },
+    {
+        "key": "alt+3",
+        "command": "workbench.action.focusThirdEditorGroup"
+    },
+    { "key": "ctrl+shift+s", "command": "workbench.action.files.saveAll" }
+]

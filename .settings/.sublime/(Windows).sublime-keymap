@@ -1,0 +1,6 @@
+[
+	{ "keys": ["alt+r"], "command": "reindent"},
+	{ "keys": ["alt+up"], "command": "swap_line_up" },
+	{ "keys": ["alt+down"], "command": "swap_line_down" },
+    { "keys": ["alt+d"], "command": "find_under_expand" }
+]
