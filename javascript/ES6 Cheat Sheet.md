@@ -56,7 +56,7 @@ var [a,b,c] = [0,1,2,3,4,5]; // assign first 3 values to individual variables
 white space and new lines are free and great for code readibility
 
 ```javascript
-
+var a,b,c,d,obj,args;
 var [
     a,
     b = 42, // default
@@ -70,4 +70,47 @@ var [
 
 [x,y] = [y,x] // reassign  order
 [,,a,b,c] // discard first 2 items
+```
+
+## object destructuring ##
+
+as named arguments. prevents many arguments inline 
+```
+foo( {
+    a: 1,
+    c: 3,
+    d: bar,
+} = {}) // initialize to empty as default
+```
+
+## for of / iterators / generators ##
+can be used on anything with an iterator. 
+
+[...str] <-- uses iterator to collect the characters into collection 
+
+create a generator
+```javascript
+function *gen(){
+    for (var i=0;i<10;i++)
+        yield i;            // pauses here until .next() is called again
+}
+```
+
+Example with custom iterator + object destructuring + defaults
+
+```javascript
+var numbers = {
+    *[Symbol.iterator]({
+        start = 0, // default
+        step = 1,  // default
+        end = 100  // default
+    } = {}) {
+        for (let i = start; i<=end ; i = i+step)
+            yield i;
+    }
+}
+// iterat on every 5 
+for (let n of numbers[Symbol.iterator]({step: 5}))
+    console.log(n);
+
 ```
