@@ -6,6 +6,6 @@ No more managing parts of state in separate controllers<br />
 
 ### flow
 
-<img src="redux1.png" widht="100">
+<img src="redux1.png" style="widht: 100px">
 
 
