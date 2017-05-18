@@ -3,7 +3,9 @@
 generic property lookup algos can be costly, therefore most VM's use a *Inline Cache*. This cache saves the path to an object for subsequent retrievals. 
 
 
-    We know that it is costly to figure out where the given property is inside an arbitrary object, so we would like to do this lookup once and then put the path to this property into a cache using object’s shape as a key. Next time we see an object with the same shape we can just get the path from the cache instead of computing it from scratch.
+> We know that it is costly to figure out where the given property is inside an arbitrary object, 
+> so we would like to do this lookup once and then put the path to this property into a cache using object’s shape as a key. 
+> Next time we see an object with the same shape we can just get the path from the cache instead of computing it from scratch.
 
 example
 
@@ -21,11 +23,16 @@ this cache is **monomorphic**
 
     f({ x: 3, y: 1 })
 
-    {x: 3} and {x: 3, y: 1} are objects of different shapes so the cache is no longer monomorphic, it now contains two cache entries one for a shape {x: *} and one for a shape {x: *, y: *} - our operation now is in polymorphic state with a degree of polymorphism 2.
+> {x: 3} and {x: 3, y: 1} are objects of different shapes so the cache is no longer monomorphic, 
+> it now contains two cache entries one for a shape {x: *} and one for a shape {x: *, y: *} 
+> our operation now is in polymorphic state with a degree of polymorphism 2.
 
 If we continue calling f with objects of different shapes it’s degree of polymorphism will continue to grow until it reaches a predefined threshold - maximum possible capacity for the inline cache (e.g. 4 for property loads in V8) - at that point cache will transition to a megamorphic state.
 
-    Megamorphic state exists to prevent uncontrolled growth of polymorphic caches, it means “I have seen too many shapes here, I give up tracking them”. In V8 megamorphic ICs can still continue to cache things but instead of doing it locally they will put what they want to cache into a global hashtable. This hashtable has a fixed size and entries are simply overwritten on collisions.
+> Megamorphic state exists to prevent uncontrolled growth of polymorphic caches, 
+> it means “I have seen too many shapes here, I give up tracking them”. 
+> In V8 megamorphic ICs can still continue to cache things but instead of doing it locally they will put what they want to cache into a global hashtable. 
+> This hashtable has a fixed size and entries are simply overwritten on collisions.
 
 test
 
