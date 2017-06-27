@@ -1,9 +1,12 @@
 ## let vs var ##
 
 let = block scope. enforces a stylistic pattern of local scoping within a function.
-let also creates a new instance in each iteration of a for loop
+let also creates a new instance in each iteration of a for loop.<br />
+globally defined let does not attach to window object.
 
 var = variable to be used within entire scope of a X (function, window etc)
+
+redeclaration: assuming strict mode var will let you redeclare, but let will not. 
 
 ## const ## 
 assignment that cannot be re-assigned. 
