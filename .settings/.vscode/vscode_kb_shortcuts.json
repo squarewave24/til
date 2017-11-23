@@ -6,16 +6,28 @@
         "when": "editorFocus"
     },
     {
-        "key": "alt+1",
-        "command": "workbench.action.focusFirstEditorGroup"
+        "key": "cmd+down",
+        "command": "editor.action.moveLinesDownAction",
+        "when": "editorTextFocus"
     },
     {
-        "key": "alt+left",
-        "command": "workbench.action.focusLeftEditor"
+        "key": "cmd+up",
+        "command": "editor.action.moveLinesUpAction",
+        "when": "editorTextFocus"
     },
     {
-        "key": "alt+right",
-        "command": "workbench.action.focusRightEditor"
+        "key": "cmd+r",
+        "command": "editor.action.format"
+    },
+    {
+        "key": "cmd+l",
+        "command": "expandLineSelection",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+l",
+        "command": "expandLineSelection",
+        "when": "editorTextFocus"
     },
     {
         "key": "alt+2",
@@ -29,5 +41,6 @@
         "key": "alt+3",
         "command": "workbench.action.focusThirdEditorGroup"
     },
-    { "key": "ctrl+shift+s", "command": "workbench.action.files.saveAll" }
+    { "key": "ctrl+shift+s", "command": "workbench.action.files.saveAll" },
+    { "key": "cmd+k cmd+d", "command": "editor.action.formatDocument" }
 ]
