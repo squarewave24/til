@@ -25,4 +25,7 @@ function findMissing(a1, a2) {
 
 console.log('result: ', findMissing(a1, a2));
 
+> result: 36
+
 ```
+
