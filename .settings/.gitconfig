@@ -1,0 +1,56 @@
+[credential]
+	helper = store
+[merge]
+	tool = BeyondCompare4
+[diff]
+	guitool = beyondcompare4
+[core]
+	editor = \"C:/Program Files (x86)/GitExtensions/GitExtensions.exe\" fileeditor
+	excludesfile = C:\\xxx\\.gitignore
+	preloadindex = true
+    mergeoptions = --no-edit    
+[difftool "beyondcompare4"]
+	path = C:/Program Files/Beyond Compare 4/bcomp.exe
+	cmd = \"C:/Program Files/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
+[mergetool "BeyondCompare4"]
+	path = C:/Program Files/Beyond Compare 4/bcomp.exe
+	cmd = \"C:/Program Files/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+[alias]
+    cm = !git add -A && git commit -m
+    co = checkout
+    undo = reset HEAD~1 --mixed
+    save = !git add -A && git commit -m 'SAVEPOINT'
+    amend = commit -a --amend
+    proxyon = !git config http.proxy http://proxy-nyc:8080 && git config https.proxy http://proxy-nyc:8080
+    proxyglobalon = !git config --global http.proxy http://proxy-nyc:8080 && git config --global https.proxy http://proxy-nyc:8080
+    proxyoff = !git config --global --unset http.proxy && git config --global --unset https.proxy
+    rcdiff = !git diff --name-status master rc  | grep -v "AssemblyInfo.cs"
+    pm = push origin master
+    pullrc = !git pull --rebase origin rc
+    s = status
+    p = pull
+    pr = pull --rebase
+    ppm = !git pull --rebase && git push origin master
+    resetpassword = !git config credential.helper store
+    hist = !gitk --all
+    conflicts = diff --name-only --diff-filter=U
+    h = !git log --graph --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    hs = !git h --max-count=10
+    fh = !git log --format=format:'%C(bold cyan)%ar %C(reset) %C(green)%f' --name-status
+    pp = log origin/master..HEAD --graph --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    pdiff = diff origin/master..HEAD
+    fwd = !git checkout `git log --reverse --ancestry-path HEAD..master | head -n 1 | cut -d \\  -f 2`
+    rwd = !git checkout HEAD~
+    code = !node /c/Program\\ Files\\ \\(x86\\)/Microsoft\\ VS\\ Code/bin/code.js
+    difft = !git difftool --no-prompt
+    merget = !git mergetool --no-prompt
+    reset = config credential.helper store
+    rcmm = !git checkout rc && git merge master
+    po = push origin
+    recent = branch --sort=committerdate 
+    cb = co -B 
+[mergetool]
+	keepBackup = false
+[gc]
+	auto = 256
+
