@@ -1,12 +1,17 @@
 [credential]
 	helper = store
+    interactive = false
+    modalPrompt = false
+[user]
+	name = rbuch
+	email = rbuch@permal.com
 [merge]
 	tool = BeyondCompare4
 [diff]
 	guitool = beyondcompare4
 [core]
 	editor = \"C:/Program Files (x86)/GitExtensions/GitExtensions.exe\" fileeditor
-	excludesfile = C:\\xxx\\.gitignore
+	excludesfile = C:\\users\\rbuch\\.gitignore
 	preloadindex = true
     mergeoptions = --no-edit    
 [difftool "beyondcompare4"]
@@ -48,7 +53,7 @@
     rcmm = !git checkout rc && git merge master
     po = push origin
     recent = branch --sort=committerdate 
-    cb = co -B 
+    cb = checkout -B 
 [mergetool]
 	keepBackup = false
 [gc]
