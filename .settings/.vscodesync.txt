@@ -1,0 +1,6 @@
+CODE SETTINGS SYNC UPLOAD SUMMARY
+Version: 3.2.9
+--------------------
+GitHub Token: ee7cd486a60629a68fb32d670e22bc58772403b6
+GitHub Gist: c1c2970386faa64767d4735055b0fce9
+GitHub Gist Type: Secret

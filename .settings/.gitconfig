@@ -10,16 +10,16 @@
 [diff]
 	guitool = beyondcompare4
 [core]
-	editor = \"C:/Program Files (x86)/GitExtensions/GitExtensions.exe\" fileeditor
+	editor = notepad
 	excludesfile = C:\\users\\rbuch\\.gitignore
 	preloadindex = true
-    mergeoptions = --no-edit    
+    mergeoptions = --no-edit
 [difftool "beyondcompare4"]
-	path = C:/Program Files/Beyond Compare 4/bcomp.exe
-	cmd = \"C:/Program Files/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
+	path = C:/Users/rafal.buch/AppData/Local/Beyond Compare 4/bcomp.exe
+	cmd = \"C:/Users/rafal.buch/AppData/Local/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
 [mergetool "BeyondCompare4"]
-	path = C:/Program Files/Beyond Compare 4/bcomp.exe
-	cmd = \"C:/Program Files/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+	path = C:/Users/rafal.buch/AppData/Local/Beyond Compare 4/bcomp.exe
+	cmd = \"C:/Users/rafal.buch/AppData/Local/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
 [alias]
     cm = !git add -A && git commit -m
     co = checkout
@@ -31,6 +31,7 @@
     proxyoff = !git config --global --unset http.proxy && git config --global --unset https.proxy
     rcdiff = !git diff --name-status master rc  | grep -v "AssemblyInfo.cs"
     pm = push origin master
+    pc = push origin HEAD
     pullrc = !git pull --rebase origin rc
     s = status
     p = pull
@@ -52,8 +53,11 @@
     reset = config credential.helper store
     rcmm = !git checkout rc && git merge master
     po = push origin
-    recent = branch --sort=committerdate 
-    cb = checkout -B 
+    recent = branch --sort=committerdate
+    cb = checkout -B
+    cfg = config --list --show-origin
+    db = branch -d
+    dbr = push origin --delete
 [mergetool]
 	keepBackup = false
 [gc]
