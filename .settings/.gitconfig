@@ -3,29 +3,23 @@
     interactive = false
     modalPrompt = false
 [user]
-	name = rbuch
-	email = rbuch@permal.com
+	name = Rafal Buch
+	email = rafal.buch@stoneridgeam.com
 [merge]
-	tool = BeyondCompare4
+	tool = bc
 [diff]
-	guitool = beyondcompare4
+	guitool = bc
 [core]
-	editor = notepad
-	excludesfile = C:\\users\\rbuch\\.gitignore
+	excludesfile = /Users/rafal.buch/.gitignore
 	preloadindex = true
     mergeoptions = --no-edit
-[difftool "beyondcompare4"]
-	path = C:/Users/rafal.buch/AppData/Local/Beyond Compare 4/bcomp.exe
-	cmd = \"C:/Users/rafal.buch/AppData/Local/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
-[mergetool "BeyondCompare4"]
-	path = C:/Users/rafal.buch/AppData/Local/Beyond Compare 4/bcomp.exe
-	cmd = \"C:/Users/rafal.buch/AppData/Local/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
 [alias]
     cm = !git add -A && git commit -m
     co = checkout
     undo = reset HEAD~1 --mixed
     save = !git add -A && git commit -m 'SAVEPOINT'
-    amend = commit -a --amend
+    amend = !git add -A && git commit -a --amend
+    rename = branch -m
     proxyon = !git config http.proxy http://proxy-nyc:8080 && git config https.proxy http://proxy-nyc:8080
     proxyglobalon = !git config --global http.proxy http://proxy-nyc:8080 && git config --global https.proxy http://proxy-nyc:8080
     proxyoff = !git config --global --unset http.proxy && git config --global --unset https.proxy
@@ -36,12 +30,12 @@
     s = status
     p = pull
     pr = pull --rebase
-    ppm = !git pull --rebase && git push origin master
     resetpassword = !git config credential.helper store
     hist = !gitk --all
     conflicts = diff --name-only --diff-filter=U
     h = !git log --graph --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-    hs = !git h --max-count=10
+    hs = !git --no-pager h --max-count=10
+    hsf = !git --no-pager h --max-count=10 -p
     fh = !git log --format=format:'%C(bold cyan)%ar %C(reset) %C(green)%f' --name-status
     pp = log origin/master..HEAD --graph --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
     pdiff = diff origin/master..HEAD
@@ -56,10 +50,22 @@
     recent = branch --sort=committerdate
     cb = checkout -B
     cfg = config --list --show-origin
-    db = branch -d
-    dbr = push origin --delete
+    pullhead = !git pull origin $(!git rev-parse --abbrev-ref HEAD)
+    pullmaster = pull origin master
+    stashpreview = stash show -p
+    comaster = !git checkout master && git pull
 [mergetool]
 	keepBackup = false
 [gc]
 	auto = 256
-
+[mergetool "bc"]
+	trustExitCode = true
+[hub]
+	host = github.stoneridge.am
+	host = git@github.stoneridge.am
+	host = https://github.stoneridge.am
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
